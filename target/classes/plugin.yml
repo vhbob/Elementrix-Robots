@@ -1,0 +1,9 @@
+name: ElementrixRobots
+main: com.vhbob.elementrixrobots.Robots
+version: 1.0
+description: A robots plugin for Elementrix
+author: Vhbob
+commands:
+  Erobots:
+    aliases: [robots]
+    description: the base command for the plugin

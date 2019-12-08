@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>elementrix-plugins</groupId>
+	<artifactId>elementrix-robots</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>elementrix-robots</name>
+	<description>A robots plugin for Elementrix</description>
+	<repositories>
+		<!-- Spigot Repo -->
+		<repository>
+			<id>spigot-repo</id>
+			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+		</repository>
+		<!-- ASkyBlock Repo -->
+		<repository>
+			<id>bintray-tastybento-maven-repo</id>
+			<name>bintray</name>
+			<url>http://dl.bintray.com/tastybento/maven-repo</url>
+		</repository>
+		<!-- Vault Repo -->
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+	<dependencies>
+		<!-- Spigot Dependency -->
+		<dependency>
+			<groupId>org.spigotmc</groupId>
+			<artifactId>spigot-api</artifactId>
+			<version>1.8.8-R0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- ASkyBlock Dependency -->
+		<dependency>
+			<groupId>com.wasteofplastic</groupId>
+			<artifactId>askyblock</artifactId>
+			<version>3.0.9.4</version>
+		</dependency>
+		<!-- Vault Dependency -->
+		<dependency>
+			<groupId>com.github.MilkBowl</groupId>
+			<artifactId>VaultAPI</artifactId>
+			<version>1.7</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

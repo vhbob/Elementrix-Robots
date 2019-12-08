@@ -1,0 +1,187 @@
+# A list of existing placeholders are as follows
+# %player% - the player doing the action
+# %target% - the target
+# %r-name% - the robot's name (applicable for GUI's)
+# %r-task% - the current task of a robot
+# %r-level% - the robot's tier
+# %r-spawned% - if the robot is spawned or not
+# %robots% - the number of robots a user has
+# Below are the configurable messages
+messages:
+  commands:
+    default: 
+      - "&8-= &7&LRobots By: &B&LElementrix&8 =-"
+      - "/Erobots give &b(username)"
+      - "/Erobots reload"
+    missing-perm: 
+      - "&4You do not have permission!"
+    reloaded: 
+      - "&B&LElementrix Robots &rhas been reloaded"
+    no-target: 
+      - "&4%target% does not exist"
+    give-egg: 
+      - "You have given a &B&Lrobot&r to &B&L%target%"
+    receive-egg: 
+      - "You have received a &B&Lrobot&r!"
+  events:
+    use-egg: 
+      - "You just claimed a &B&lrobot egg&r!"
+    deactivate-all:
+      - "All your robots have been &c&ldeactivated&r!"
+    deactivate-none:
+      - "&cYou do not have any robots to deactivate!"
+    teleport:
+      - "Teleported &3%r-name% &rto your location"
+    task-change:
+      - "Set &3%r-name%'s &rtask to &3%r-task%"
+    add-chest:
+      - "Please select a &3chest &rfor &3%r-name%"
+    chest-timeout:
+      - "&cYou are no longer selecting a chest"
+    added-chest:
+      - "Set the &3chest &rfor &3%r-name%"
+    set-name:
+      - "Enter the new name for &3%r-name%"
+    name-length:
+      - "&cThat name is too long"
+    name-timeout:
+      - "&cYou are no longer entering a name"
+    name-set:
+      - "Set the name to &3%r-name%"
+    egg-confirm:
+      - "Please click again to redeem the &3egg"
+    egg-timeout:
+      " &4You are no longer in confirmation for redeeming the egg"
+    take-egg:
+      - "You redeemed the &3egg"
+    level-off:
+      - "&CYour robot cannot be upgraded to that level!"
+    low-bal:
+      - "&CYou do not have enough money!"
+    upgraded:
+      - "Sucessfully upgraded &3%r-name% &Rto tier &3%r-level%"
+    invalid-place:
+      - "&CYou cannot place the robot there!"
+# Configurable inventory item names and lores, the above placeholders are in play as well
+inv:
+  gui-title: "&3&LRobots"
+  editor-title: "Editing: &3&L%r-name%"
+  total-name: "&3Robot Manager"
+  total-lore:
+    - "&7Total Robots: &a%robots%"
+  deactivate-name: "&4&LDeactivate All"
+  deactivate-lore:
+    - "&7Click to deactivate &C&LALL &crobots &7Be careful!"
+  next-name: "&3&LNext Page"
+  next-lore:
+    - "&7Click to go to the next page"
+  back-name: "&3&LPrevious Page"
+  back-lore:
+    - "&7Click to go to the previous page"
+  robot-name: "&B&L%r-name%"
+  robot-lore:
+    - "&3Tier: &L%r-level%"
+    - "&3Mode: &L%r-task%"
+    - "&3Spawned: &L%r-spawned%"
+  task-change-name: "&rChange robot &3task"
+  task-change-lore:
+    - "&7Click to change the robot's &3task!"
+  teleport-name: "&3Teleport"
+  teleport-lore:
+    - "&7Click to &3teleport &7this robot to you!"
+  chest-name: "&3Link &rchest"
+  chest-lore:
+    - "&7Click to &3link &7a chest to this robot!"
+  name-name: "&rChange &3name"
+  name-lore:
+    - "&7Click to change the &3name &7of this robot!"
+  upgrade-name: "&3Upgrade"
+  upgrade-lore:
+    - "&7Click to &3upgrade &7this robot!"
+  leave-name: "&4Leave"
+  leave-lore:
+    - "&7Click to return to the &4menu!"
+  claim-name: "&3Claim"
+  claim-lore:
+    - "&7Click this to get the &3egg &7of this robot!"
+  task-grind-name: "&3Mob Grinding"
+  task-grind-lore: 
+    - "&7Set this robot to &3mob grinding!"
+  task-spawn-name: "&3Mob Spawning"
+  task-spawn-lore: 
+    - "&7Set this robot to &3mob spawning!"
+  task-none-name: "&4None"
+  task-none-lore: 
+    - "&7Set this robot to do &4nothing!"   
+  upgrade-1-name: "&RTier &L1 &7(Click)"
+  upgrade-1-lore:
+    - "  &R&L* &7Upgrade to &7&LTier &r1"
+    - "  &R&L* &7Cost: &R&L5M"
+    - "  &R&L* &7Sharpness: &r&L1"
+    - "  &R&L* &7Looting: &r&L0"
+  upgrade-2-name: "&8Tier &L2 &7(Click)"
+  upgrade-2-lore:
+    - "  &R&L* &7Upgrade to &8&LTier 2"
+    - "  &R&L* &7Cost: &8&L10M"
+    - "  &R&L* &7Sharpness: &8&L2"
+    - "  &R&L* &7Looting: &8&L1"
+  upgrade-3-name: "&RTier &L3 &7(Click)"
+  upgrade-3-lore:
+    - "  &R&L* &7Upgrade to &R&LTier 3"
+    - "  &R&L* &7Cost: &R&L25M"
+    - "  &R&L* &7Sharpness: &R&L3"
+    - "  &R&L* &7Looting: &R&L2"
+  upgrade-4-name: "&4Tier &L4 &7(Click)"
+  upgrade-4-lore:
+    - "  &R&L* &7Upgrade to &4&LTier 4"
+    - "  &R&L* &7Cost: &4&L50M"
+    - "  &R&L* &7Sharpness: &4&L4"
+    - "  &R&L* &7Looting: &4&L3"
+  upgrade-5-name: "&6Tier &L5 &7(Click)"
+  upgrade-5-lore:
+    - "  &R&L* &7Upgrade to &6&LTier 5"
+    - "  &R&L* &7Cost: &6&L100M"
+    - "  &R&L* &7Sharpness: &6&L5"
+    - "  &R&L* &7Looting: &6&L4"
+  upgrade-6-name: "&BTier &L6 &7(Click)"
+  upgrade-6-lore:
+    - "  &R&L* &7Upgrade to &B&LTier 6"
+    - "  &R&L* &7Cost: &B&L200M"
+    - "  &R&L* &7Sharpness: &B&L6"
+    - "  &R&L* &7Looting: &B&L5"
+  upgrade-7-name: "&ATier &L6 &7(Click)"
+  upgrade-7-lore:
+    - "  &R&L* &7Upgrade to &A&LTier 7"
+    - "  &R&L* &7Cost: &A&L500M"
+    - "  &R&L* &7Sharpness: &A&L7"
+    - "  &R&L* &7Looting: &A&L6"
+        
+# Below are the levels for sword enchantments per tier
+# As well as the costs.
+tiers:
+  sharpness:
+    0: 0
+    1: 1
+    2: 2
+    3: 3
+    4: 4
+    5: 5
+    6: 6
+    7: 7
+  looting:
+    0: 0
+    1: 0
+    2: 1
+    3: 2
+    4: 3
+    5: 4
+    6: 5
+    7: 6
+  costs:
+    1: 5000000
+    2: 10000000
+    3: 25000000
+    4: 50000000
+    5: 100000000
+    6: 200000000
+    7: 500000000
