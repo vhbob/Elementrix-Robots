@@ -107,35 +107,35 @@ public class Robot {
 	}
 
 	public void activate(Location loc) {
-		if (this.stand == null) {
-			ArmorStand newStand = (ArmorStand) loc.getWorld().spawnEntity(loc, EntityType.ARMOR_STAND);
-			newStand.setSmall(true);
-			newStand.setCustomName(ChatColor.DARK_AQUA + this.name);
-			newStand.setCustomNameVisible(true);
-			ItemStack head = new ItemStack(Material.SKULL_ITEM, 1, (byte) 3);
-			SkullMeta headMeta = (SkullMeta) head.getItemMeta();
-			headMeta.setOwner(Bukkit.getOfflinePlayer(owner).getName());
-			head.setItemMeta(headMeta);
-			newStand.setHelmet(head);
-			ItemStack chest = new ItemStack(Material.LEATHER_CHESTPLATE);
-			LeatherArmorMeta lcm = (LeatherArmorMeta) chest.getItemMeta();
-			lcm.setColor(Color.RED);
-			chest.setItemMeta(lcm);
-			ItemStack leg = new ItemStack(Material.LEATHER_LEGGINGS);
-			LeatherArmorMeta llm = (LeatherArmorMeta) leg.getItemMeta();
-			llm.setColor(Color.RED);
-			leg.setItemMeta(llm);
-			ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
-			LeatherArmorMeta lbm = (LeatherArmorMeta) boots.getItemMeta();
-			lbm.setColor(Color.GREEN);
-			boots.setItemMeta(lbm);
-			newStand.setChestplate(chest);
-			newStand.setLeggings(leg);
-			newStand.setBoots(boots);
-			newStand.setGravity(false);
-			newStand.setArms(true);
-			stand = newStand;
-		}
+		if (stand != null)
+			despawn();
+		ArmorStand newStand = (ArmorStand) loc.getWorld().spawnEntity(loc, EntityType.ARMOR_STAND);
+		newStand.setSmall(true);
+		newStand.setCustomName(ChatColor.DARK_AQUA + this.name);
+		newStand.setCustomNameVisible(true);
+		ItemStack head = new ItemStack(Material.SKULL_ITEM, 1, (byte) 3);
+		SkullMeta headMeta = (SkullMeta) head.getItemMeta();
+		headMeta.setOwner(Bukkit.getOfflinePlayer(owner).getName());
+		head.setItemMeta(headMeta);
+		newStand.setHelmet(head);
+		ItemStack chest = new ItemStack(Material.LEATHER_CHESTPLATE);
+		LeatherArmorMeta lcm = (LeatherArmorMeta) chest.getItemMeta();
+		lcm.setColor(Color.RED);
+		chest.setItemMeta(lcm);
+		ItemStack leg = new ItemStack(Material.LEATHER_LEGGINGS);
+		LeatherArmorMeta llm = (LeatherArmorMeta) leg.getItemMeta();
+		llm.setColor(Color.RED);
+		leg.setItemMeta(llm);
+		ItemStack boots = new ItemStack(Material.LEATHER_BOOTS);
+		LeatherArmorMeta lbm = (LeatherArmorMeta) boots.getItemMeta();
+		lbm.setColor(Color.GREEN);
+		boots.setItemMeta(lbm);
+		newStand.setChestplate(chest);
+		newStand.setLeggings(leg);
+		newStand.setBoots(boots);
+		newStand.setGravity(false);
+		newStand.setArms(true);
+		stand = newStand;
 		this.stand.teleport(loc);
 	}
 

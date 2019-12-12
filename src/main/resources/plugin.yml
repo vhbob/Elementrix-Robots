@@ -7,3 +7,4 @@ commands:
   Erobots:
     aliases: [robots]
     description: the base command for the plugin
+depend: [ASkyBlock, Multiverse-Core]

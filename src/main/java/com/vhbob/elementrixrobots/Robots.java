@@ -37,36 +37,43 @@ public class Robots extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		saveDefaultConfig();
-		getCommand("Erobots").setExecutor(new Erobots(this));
-		if (!setupEconomy()) {
-			Bukkit.getLogger().severe(
-					String.format("[%s] - Disabled due to no Vault dependency found!", getDescription().getName()));
-			getServer().getPluginManager().disablePlugin(this);
-			return;
-		}
-		// Load all pre-existing robots (loop thru files in directory)
-		robots = new HashMap<UUID, ArrayList<Robot>>();
-		File dir = new File(getDataFolder() + "/robots");
-		File[] dirs = dir.listFiles();
-		if (dirs != null) {
-			for (File file : dirs) {
-				UUID id = UUID.fromString(file.getName().replace(".yml", ""));
-				System.out.println(id);
-				RobotStorageFile storageFile = new RobotStorageFile(id, this);
-				ArrayList<Robot> robotsList = storageFile.getRobots();
-				if (robots != null)
-					robots.put(id, robotsList);
+		final Robots r = this;
+		new BukkitRunnable() {
+
+			public void run() {
+				getCommand("Erobots").setExecutor(new Erobots(r));
+				if (!setupEconomy()) {
+					Bukkit.getLogger().severe(String.format("[%s] - Disabled due to no Vault dependency found!",
+							getDescription().getName()));
+					getServer().getPluginManager().disablePlugin(r);
+					return;
+				}
+				// Load all pre-existing robots (loop thru files in directory)
+				robots = new HashMap<UUID, ArrayList<Robot>>();
+				File dir = new File(getDataFolder() + "/robots");
+				File[] dirs = dir.listFiles();
+				if (dirs != null) {
+					for (File file : dirs) {
+						UUID id = UUID.fromString(file.getName().replace(".yml", ""));
+						System.out.println(id);
+						RobotStorageFile storageFile = new RobotStorageFile(id, r);
+						ArrayList<Robot> robotsList = storageFile.getRobots();
+						if (robots != null)
+							robots.put(id, robotsList);
+					}
+				}
+				modifying = new HashMap<Player, Integer>();
+				modifyingRobot = new HashMap<Player, Integer>();
+				killed = new HashMap<Robot, ArrayList<LivingEntity>>();
+				Bukkit.getPluginManager().registerEvents(new RobotEggEvents(r), r);
+				Bukkit.getPluginManager().registerEvents(new ModifyRobotEvents(r), r);
+				Bukkit.getPluginManager().registerEvents(new ExploitPreventionEvents(r), r);
+				Bukkit.getPluginManager().registerEvents(new RobotActionEvents(r), r);
+				// Schedule Tasks
+				scheduleTasks();
+
 			}
-		}
-		modifying = new HashMap<Player, Integer>();
-		modifyingRobot = new HashMap<Player, Integer>();
-		killed = new HashMap<Robot, ArrayList<LivingEntity>>();
-		Bukkit.getPluginManager().registerEvents(new RobotEggEvents(this), this);
-		Bukkit.getPluginManager().registerEvents(new ModifyRobotEvents(this), this);
-		Bukkit.getPluginManager().registerEvents(new ExploitPreventionEvents(this), this);
-		Bukkit.getPluginManager().registerEvents(new RobotActionEvents(this), this);
-		// Schedule Tasks
-		scheduleTasks();
+		}.runTaskLater(this, 10);
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Elementrix Robots has been enabled!");
 	}
 

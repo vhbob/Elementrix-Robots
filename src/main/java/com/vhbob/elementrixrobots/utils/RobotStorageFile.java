@@ -53,6 +53,8 @@ public class RobotStorageFile {
 			int level = config.getInt("robots." + roboID + ".level");
 			RobotTask task = RobotTask.fromString(config.getString("robots." + roboID + ".task"));
 			Robot r = new Robot(user, level, name, plugin);
+			if (robots.contains(r))
+				continue;
 			r.setTask(task);
 			if (config.contains("robots." + roboID + ".chest")) {
 				Location chestLoc = (Location) config.get("robots." + roboID + ".chest");
@@ -65,6 +67,7 @@ public class RobotStorageFile {
 				Location location = (Location) config.get("robots." + roboID + ".location");
 				r.activate(location);
 			}
+			System.out.println("\n\n\nENABLING " + r.getName());
 			robots.add(r);
 		}
 		return robots;
